@@ -13,7 +13,7 @@ export default function TopBar() {
         </a>
         <nav className="nav" aria-label="Primary">
           <a href="/work/">Work</a>
-          <a href="/#approach">Approach</a>
+          <a href="/approach/">Approach</a>
           <a
             className="ext"
             href={SITE.flagship.url}

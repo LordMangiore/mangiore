@@ -15,6 +15,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: 'monthly' as const,
     priority: 0.9,
   };
+  const approach = {
+    url: `${SITE.baseUrl}/approach/`,
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
+  };
   const contact = {
     url: `${SITE.baseUrl}/contact/`,
     changeFrequency: 'yearly' as const,
@@ -25,5 +30,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: 'monthly' as const,
     priority: 0.8,
   }));
-  return [home, work, contact, ...lanes];
+  return [home, work, approach, contact, ...lanes];
 }

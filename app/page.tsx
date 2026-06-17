@@ -2,6 +2,7 @@ import Reveal from '@/components/Reveal';
 import HeroDimensions from '@/components/HeroDimensions';
 import { SITE } from '@/lib/site';
 import { LANES } from '@/lib/lanes';
+import { PRINCIPLES } from '@/lib/principles';
 
 const orgJsonLd = {
   '@context': 'https://schema.org',
@@ -153,44 +154,18 @@ export default function Home() {
           <Reveal className="sec-head">
             <span className="eyebrow">Fig. 02 · How we work</span>
             <h2>We hold the line on what right is.</h2>
+            <a className="sec-more" href="/approach/">
+              Read the full approach →
+            </a>
           </Reveal>
           <div className="principles">
-            <Reveal className="principle">
-              <span className="n">P1</span>
-              <h3>We don&apos;t ship what we wouldn&apos;t run.</h3>
-              <p>
-                BetterCram isn&apos;t a portfolio piece. It&apos;s a product we
-                own and operate, which means we build for the version of you
-                that has to live with the result.
-              </p>
-            </Reveal>
-            <Reveal className="principle">
-              <span className="n">P2</span>
-              <h3>Right is a standard, not a preference.</h3>
-              <p>
-                Fast, findable, and obvious to use aren&apos;t matters of taste.
-                We know where the bar is, and we don&apos;t quietly lower it to
-                hit a date.
-              </p>
-            </Reveal>
-            <Reveal className="principle">
-              <span className="n">P3</span>
-              <h3>Taste is a deliverable. So is uptime.</h3>
-              <p>
-                The way something looks and the way it holds up under load are
-                the same discipline applied at two ends. We refuse to trade one
-                for the other.
-              </p>
-            </Reveal>
-            <Reveal className="principle">
-              <span className="n">P4</span>
-              <h3>We say no to the easy version.</h3>
-              <p>
-                The shortcut that ships fast and ages badly is the most
-                expensive thing you can buy. We&apos;d rather tell you that up
-                front than bill you for it later.
-              </p>
-            </Reveal>
+            {PRINCIPLES.map((p) => (
+              <Reveal className="principle" key={p.code}>
+                <span className="n">{p.code}</span>
+                <h3>{p.title}</h3>
+                <p>{p.short}</p>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>
