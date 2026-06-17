@@ -1,0 +1,23 @@
+# Static export: `npm run build` emits plain HTML/CSS/JS to ./out, which
+# Netlify publishes directly. No server runtime, no Next.js runtime plugin
+# needed. Same shape as a BetterCram-style static deploy.
+[build]
+  command = "npm run build"
+  publish = "out"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# Long-cache the fingerprinted build assets; they never change in place.
+[[headers]]
+  for = "/_next/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Sensible baseline security headers for a static marketing site.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "DENY"
