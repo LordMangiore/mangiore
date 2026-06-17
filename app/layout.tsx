@@ -67,6 +67,11 @@ export default function RootLayout({
       className={`${display.variable} ${body.variable} ${mono.variable}`}
     >
       <body>
+        {/* Without JS there is no mechanism to trigger scroll reveals, so make
+            sure the content is simply visible. */}
+        <noscript>
+          <style>{`.rv{opacity:1 !important;transform:none !important}`}</style>
+        </noscript>
         <a className="skip" href="#main">
           Skip to content
         </a>

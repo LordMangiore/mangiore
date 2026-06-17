@@ -1,5 +1,5 @@
-import Link from 'next/link';
 import Reveal from '@/components/Reveal';
+import HeroDimensions from '@/components/HeroDimensions';
 import { SITE } from '@/lib/site';
 import { LANES } from '@/lib/lanes';
 
@@ -40,30 +40,33 @@ export default function Home() {
       {/* HERO */}
       <section className="hero">
         <div className="wrap">
-          <Reveal as="p" className="eyebrow">
-            {SITE.tagline} · {SITE.location}
-          </Reveal>
-          <Reveal as="h1">
-            We build great digital things. We ship <em>our own</em> to prove it.
-          </Reveal>
-          <Reveal as="p" className="sub">
-            Mangiore designs, builds, and runs software to a product standard
-            most shops only pitch. The same rigor is what makes an established
-            business genuinely modern.
-          </Reveal>
-          <Reveal className="actions">
-            <a className="btn btn-solid" href={`mailto:${SITE.email}`}>
-              Start a project
-            </a>
-            <a
-              className="btn btn-ghost"
-              href={SITE.flagship.url}
-              target="_blank"
-              rel="noopener"
-            >
-              Visit {SITE.flagship.name} ↗
-            </a>
-          </Reveal>
+          <HeroDimensions>
+            <p className="eyebrow enter d1">
+              {SITE.tagline} · {SITE.location}
+            </p>
+            <h1 className="enter d2">
+              We build great digital things. We ship <em>our own</em> to prove
+              it.
+            </h1>
+            <p className="sub enter d3">
+              Mangiore designs, builds, and runs software to a product standard
+              most shops only pitch. The same rigor is what makes an established
+              business genuinely modern.
+            </p>
+            <div className="actions enter d4">
+              <a className="btn btn-solid" href={`mailto:${SITE.email}`}>
+                Start a project
+              </a>
+              <a
+                className="btn btn-ghost"
+                href={SITE.flagship.url}
+                target="_blank"
+                rel="noopener"
+              >
+                Visit {SITE.flagship.name} ↗
+              </a>
+            </div>
+          </HeroDimensions>
         </div>
       </section>
 
@@ -76,12 +79,14 @@ export default function Home() {
           </Reveal>
           <Reveal className="lanes">
             {LANES.map((l) => (
-              <Link key={l.slug} className="lane" href={`/${l.slug}/`}>
+              <a key={l.slug} className="lane" href={`/${l.slug}/`}>
                 <span className="idx">{l.code}</span>
-                <h3>{l.title}</h3>
+                <h3 style={{ viewTransitionName: `lane-title-${l.slug}` }}>
+                  {l.title}
+                </h3>
                 <p>{l.summary}</p>
                 <span className="go">Read more ↗</span>
-              </Link>
+              </a>
             ))}
           </Reveal>
           <Reveal className="specrow">

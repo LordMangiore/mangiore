@@ -1,11 +1,10 @@
-import Link from 'next/link';
 import { SITE } from '@/lib/site';
 import { LANES } from '@/lib/lanes';
 
 export default function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer>
+    <footer style={{ viewTransitionName: 'site-footer' }}>
       <div className="wrap">
         <div className="foot-top">
           <div>
@@ -19,9 +18,9 @@ export default function Footer() {
           </div>
           <nav className="foot-links" aria-label="Footer">
             {LANES.map((l) => (
-              <Link key={l.slug} href={`/${l.slug}/`}>
+              <a key={l.slug} href={`/${l.slug}/`}>
                 {l.title}
-              </Link>
+              </a>
             ))}
             <a href={SITE.flagship.url} target="_blank" rel="noopener">
               {SITE.flagship.name}

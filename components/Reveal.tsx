@@ -2,9 +2,11 @@
 
 import { useEffect, useRef, type ElementType, type ReactNode } from 'react';
 
-// Quiet scroll reveal. One small, orchestrated motion, and nothing if the
-// visitor asked for reduced motion. The effect degrades to fully visible
-// before JS runs, so content is never hidden from crawlers or no-JS readers.
+// Reveal-on-scroll fallback. When the browser supports native scroll-driven
+// animations (animation-timeline: view()), CSS handles the reveal with no
+// per-frame JS and this component does nothing but render. Otherwise it falls
+// back to an IntersectionObserver. Either way the element ends visible, and
+// the hidden state only applies once html.js is set, so no-JS readers are safe.
 export default function Reveal({
   children,
   as: Tag = 'div',
@@ -26,8 +28,14 @@ export default function Reveal({
       window.matchMedia &&
       window.matchMedia('(prefers-reduced-motion:reduce)').matches;
 
-    if (reduce || !('IntersectionObserver' in window)) {
-      el.classList.add('in');
+    const nativeScroll =
+      typeof CSS !== 'undefined' &&
+      CSS.supports &&
+      CSS.supports('animation-timeline: view()');
+
+    // Native scroll-timeline or reduced motion: nothing for JS to do.
+    if (nativeScroll || reduce || !('IntersectionObserver' in window)) {
+      if (reduce) el.classList.add('in');
       return;
     }
 

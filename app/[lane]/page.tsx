@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Reveal from '@/components/Reveal';
 import { SITE } from '@/lib/site';
@@ -64,24 +63,24 @@ export default async function LanePage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
       />
 
+      {/* Hero stays static so the cross-page title morph reads cleanly. */}
       <section className="lane-hero">
         <div className="wrap">
-          <Reveal as="nav" className="crumbs" aria-label="Breadcrumb">
-            <Link href="/">{SITE.name}</Link>
+          <nav className="crumbs" aria-label="Breadcrumb">
+            <a href="/">{SITE.name}</a>
             <span className="sep">/</span>
-            <Link href="/#work">Work</Link>
+            <a href="/#work">Work</a>
             <span className="sep">/</span>
             <span>{lane.code}</span>
-          </Reveal>
-          <Reveal as="p" className="eyebrow">
-            {lane.code} / What we do
-          </Reveal>
-          <Reveal as="h1" className="lane-title">
+          </nav>
+          <p className="eyebrow">{lane.code} / What we do</p>
+          <h1
+            className="lane-title"
+            style={{ viewTransitionName: `lane-title-${lane.slug}` }}
+          >
             {lane.title}
-          </Reveal>
-          <Reveal as="p" className="lane-lead">
-            {lane.lead}
-          </Reveal>
+          </h1>
+          <p className="lane-lead">{lane.lead}</p>
         </div>
       </section>
 
@@ -136,12 +135,14 @@ export default async function LanePage({
           </Reveal>
           <Reveal className="related-grid">
             {otherLanes(lane.slug).map((l) => (
-              <Link key={l.slug} className="lane" href={`/${l.slug}/`}>
+              <a key={l.slug} className="lane" href={`/${l.slug}/`}>
                 <span className="idx">{l.code}</span>
-                <h3>{l.title}</h3>
+                <h3 style={{ viewTransitionName: `lane-title-${l.slug}` }}>
+                  {l.title}
+                </h3>
                 <p>{l.summary}</p>
                 <span className="go">Read more ↗</span>
-              </Link>
+              </a>
             ))}
           </Reveal>
         </div>

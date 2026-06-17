@@ -693,7 +693,14 @@ footer {
   }
 }
 
-/* ---- reveal ---- */
+/* ---- reveal ----
+   Progressive enhancement, three tiers:
+   1. JS + scroll-timeline (Chromium): a native scroll-driven animation
+      reveals on scroll with zero per-frame JS.
+   2. JS, no scroll-timeline (Safari/Firefox today): IntersectionObserver
+      adds .in and the transition runs.
+   3. No JS: the <noscript> style in the layout forces everything visible,
+      so a reader without scripts never gets stuck on a blank page. */
 .rv {
   opacity: 0;
   transform: translateY(18px);
@@ -703,6 +710,153 @@ footer {
   opacity: 1;
   transform: none;
 }
+@supports (animation-timeline: view()) {
+  .rv {
+    transition: none;
+    animation: rv-in linear both;
+    animation-timeline: view();
+    animation-range: entry 4% cover 18%;
+  }
+}
+@keyframes rv-in {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ---- hero: orchestrated load ----
+   One choreographed entrance. Pure CSS and time-based, so it ends visible
+   even with no JS. Each piece enters from hidden with a staggered delay;
+   the measurement line draws last, as if the page is being dimensioned. */
+.enter {
+  animation: enter 0.85s cubic-bezier(0.2, 0, 0, 1) both;
+}
+@keyframes enter {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.d1 {
+  animation-delay: 0.05s;
+}
+.d2 {
+  animation-delay: 0.18s;
+}
+.d3 {
+  animation-delay: 0.42s;
+}
+.d4 {
+  animation-delay: 0.56s;
+}
+.d5 {
+  animation-delay: 0.68s;
+}
+
+/* ---- hero measurement (the one bold moment) ---- */
+.hero-frame {
+  position: relative;
+}
+/* registration crosshairs at the frame corners, like a technical drawing */
+.hero-frame::before,
+.hero-frame::after {
+  content: '';
+  position: absolute;
+  width: 13px;
+  height: 13px;
+  opacity: 0;
+  pointer-events: none;
+  background: linear-gradient(var(--steel), var(--steel)) center / 100% 1px
+      no-repeat,
+    linear-gradient(var(--steel), var(--steel)) center / 1px 100% no-repeat;
+  animation: mark-in 0.6s ease 0.7s both;
+}
+.hero-frame::before {
+  top: -0.4rem;
+  left: -0.4rem;
+}
+.hero-frame::after {
+  right: -0.4rem;
+  bottom: 2.2rem;
+}
+@keyframes mark-in {
+  to {
+    opacity: 0.55;
+  }
+}
+.dim {
+  position: relative;
+  height: 1px;
+  margin: 2rem 0 0;
+  background: var(--rule);
+  transform: scaleX(0);
+  transform-origin: left center;
+  animation: dim-draw 0.7s cubic-bezier(0.2, 0, 0, 1) 0.5s both;
+}
+.dim::before,
+.dim::after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  width: 1px;
+  height: 9px;
+  background: var(--rule);
+}
+.dim::before {
+  left: 0;
+}
+.dim::after {
+  right: 0;
+}
+.dim-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--paper);
+  padding: 0 0.7rem;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--steel);
+  white-space: nowrap;
+  opacity: 0;
+  animation: label-in 0.5s ease 0.95s both;
+}
+.dim-label b {
+  color: var(--pine-bright);
+  font-weight: 700;
+}
+@keyframes dim-draw {
+  to {
+    transform: scaleX(1);
+  }
+}
+@keyframes label-in {
+  to {
+    opacity: 1;
+  }
+}
+
+/* ---- view transitions ----
+   Cross-document navigation morphs. A lane's title on the homepage card
+   carries the same view-transition-name as the lane page heading, so it
+   travels between pages. The header and footer hold still. Degrades to a
+   normal navigation where the API is unsupported. */
+@view-transition {
+  navigation: auto;
+}
+::view-transition-group(*) {
+  animation-duration: 0.5s;
+  animation-timing-function: cubic-bezier(0.2, 0, 0, 1);
+}
+
 :focus-visible {
   outline: 2px solid var(--pine-bright);
   outline-offset: 3px;
@@ -713,8 +867,18 @@ footer {
     transition: none !important;
     scroll-behavior: auto !important;
   }
-  .rv {
-    opacity: 1;
-    transform: none;
+  .rv,
+  .dim,
+  .dim-label,
+  .enter,
+  .hero-frame::before,
+  .hero-frame::after {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation-duration: 0.001s !important;
   }
 }

@@ -1,17 +1,19 @@
-import Link from 'next/link';
 import { SITE } from '@/lib/site';
 
+// Internal links are plain anchors (real document navigations) so the
+// cross-document View Transitions API can morph between pages. The header
+// carries a stable view-transition-name so it holds in place during the morph.
 export default function TopBar() {
   return (
-    <header className="topbar">
+    <header className="topbar" style={{ viewTransitionName: 'site-header' }}>
       <div className="wrap">
-        <Link className="brand" href="/">
+        <a className="brand" href="/">
           {SITE.name}
           <span className="dot">.</span>
-        </Link>
+        </a>
         <nav className="nav" aria-label="Primary">
-          <Link href="/#work">Work</Link>
-          <Link href="/#approach">Approach</Link>
+          <a href="/#work">Work</a>
+          <a href="/#approach">Approach</a>
           <a
             className="ext"
             href={SITE.flagship.url}
