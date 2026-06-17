@@ -15,6 +15,7 @@ export const metadata: Metadata = {
     description:
       'The standard we hold, said plainly. Four principles we do not renegotiate under pressure.',
     url: `${SITE.baseUrl}/approach/`,
+    images: [SITE.ogImage],
   },
 };
 

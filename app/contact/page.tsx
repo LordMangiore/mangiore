@@ -13,6 +13,7 @@ export const metadata: Metadata = {
     description:
       'Tell us where you are and what right looks like. It goes straight to a person.',
     url: `${SITE.baseUrl}/contact/`,
+    images: [SITE.ogImage],
   },
 };
 

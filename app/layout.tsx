@@ -44,11 +44,13 @@ export const metadata: Metadata = {
     description: 'We build great digital things. We ship our own to prove it.',
     url: SITE.baseUrl,
     siteName: SITE.name,
+    images: [SITE.ogImage],
   },
   twitter: {
     card: 'summary_large_image',
     title: `${SITE.name} | ${SITE.tagline}`,
     description: 'We build great digital things. We ship our own to prove it.',
+    images: [SITE.ogImage.url],
   },
   robots: { index: true, follow: true },
 };

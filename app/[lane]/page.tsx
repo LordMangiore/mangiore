@@ -29,6 +29,7 @@ export async function generateMetadata({
       title: lane.metaTitle,
       description: lane.metaDescription,
       url: `${SITE.baseUrl}/${lane.slug}/`,
+      images: [SITE.ogImage],
     },
   };
 }

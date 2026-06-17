@@ -15,6 +15,7 @@ export const metadata: Metadata = {
     description:
       'No gallery of other people’s work. You are here with a problem. That is the subject.',
     url: `${SITE.baseUrl}/work/`,
+    images: [SITE.ogImage],
   },
 };
 

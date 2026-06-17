@@ -14,6 +14,9 @@ export const SITE = {
   tagline: 'Digital Product & Systems Studio',
   description:
     'Mangiore is a digital product and systems studio. We design, build, and run software to a product standard, and bring that same rigor to making established businesses modern. BetterCram is our flagship.',
+  // Shared social card. Referenced explicitly on every page because a
+  // page-level openGraph object replaces the file-convention image.
+  ogImage: { url: '/og.png', width: 1200, height: 630 },
   flagship: {
     name: 'BetterCram',
     url: 'https://bettercram.com',

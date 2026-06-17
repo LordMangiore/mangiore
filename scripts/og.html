@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Space+Mono:wght@400;700&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1200px; height: 630px; }
+      body {
+        background: #f6f4ee;
+        color: #15140f;
+        font-family: 'Newsreader', Georgia, serif;
+        padding: 84px 88px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      /* corner registration mark */
+      .mark {
+        position: absolute; top: 40px; left: 40px; width: 18px; height: 18px;
+        background:
+          linear-gradient(#928c80, #928c80) center / 100% 1.5px no-repeat,
+          linear-gradient(#928c80, #928c80) center / 1.5px 100% no-repeat;
+        opacity: .6;
+      }
+      .eyebrow {
+        font-family: 'Space Mono', monospace; font-weight: 700;
+        font-size: 19px; letter-spacing: .18em; text-transform: uppercase;
+        color: #928c80;
+      }
+      .word {
+        font-family: 'Space Grotesk', sans-serif; font-weight: 600;
+        letter-spacing: -.04em; font-size: 150px; line-height: .9;
+        margin-top: 4px;
+      }
+      .word .dot { color: #2f6a51; }
+      .line {
+        font-size: 44px; line-height: 1.18; color: #46443c; max-width: 19ch;
+        margin-top: 26px;
+      }
+      .line em { font-style: italic; }
+      .rule {
+        position: relative; height: 1.5px; background: #dcd7cc; margin-top: 8px;
+      }
+      .rule::before, .rule::after {
+        content: ''; position: absolute; top: -6px; width: 1.5px; height: 14px; background: #dcd7cc;
+      }
+      .rule::before { left: 0; } .rule::after { right: 0; }
+      .specrow {
+        display: flex; justify-content: space-between; margin-top: 16px;
+        font-family: 'Space Mono', monospace; font-size: 18px;
+        letter-spacing: .14em; text-transform: uppercase; color: #928c80;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="mark"></div>
+    <div>
+      <div class="eyebrow">Digital Product &amp; Systems Studio</div>
+      <div class="word">Mangiore<span class="dot">.</span></div>
+      <div class="line">We build great digital things. We ship <em>our own</em> to prove it.</div>
+    </div>
+    <div>
+      <div class="rule"></div>
+      <div class="specrow">
+        <span>mangiore.com</span>
+        <span>Built to a standard</span>
+      </div>
+    </div>
+  </body>
+</html>
