@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Reveal from '@/components/Reveal';
+import MeasureLine from '@/components/MeasureLine';
 import { SITE } from '@/lib/site';
 import { LANES, getLane, otherLanes } from '@/lib/lanes';
 
@@ -81,6 +82,7 @@ export default async function LanePage({
             {lane.title}
           </h1>
           <p className="lane-lead">{lane.lead}</p>
+          <MeasureLine label={`Lane ${lane.code} · column`} />
         </div>
       </section>
 

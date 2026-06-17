@@ -74,7 +74,7 @@ export default function Home() {
       <section id="work">
         <div className="wrap">
           <Reveal className="sec-head">
-            <span className="eyebrow">01 / What we do</span>
+            <span className="eyebrow">Fig. 01 · What we do</span>
             <h2>Four ways we work, one standard across all of them.</h2>
           </Reveal>
           <Reveal className="lanes">
@@ -89,6 +89,7 @@ export default function Home() {
               </a>
             ))}
           </Reveal>
+          <div className="specrule rdraw" aria-hidden="true" />
           <Reveal className="specrow">
             <span>{SITE.legalName}</span>
             <span>Built to a standard</span>
@@ -150,7 +151,7 @@ export default function Home() {
       <section id="approach">
         <div className="wrap">
           <Reveal className="sec-head">
-            <span className="eyebrow">02 / How we work</span>
+            <span className="eyebrow">Fig. 02 · How we work</span>
             <h2>We hold the line on what right is.</h2>
           </Reveal>
           <div className="principles">

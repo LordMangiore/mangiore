@@ -62,6 +62,9 @@ export default function Footer() {
           <span>
             © {year} {SITE.legalName}
           </span>
+          <span className="foot-hint">
+            Press <kbd>G</kbd> for grid
+          </span>
           <span>All rights reserved</span>
         </div>
       </div>

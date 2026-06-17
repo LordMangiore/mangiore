@@ -772,6 +772,116 @@ footer {
   }
 }
 
+/* ---- flagship technical backdrop ---- */
+.flagship {
+  position: relative;
+  overflow: hidden;
+}
+.flagship::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(
+    rgba(127, 214, 179, 0.11) 1px,
+    transparent 1.4px
+  );
+  background-size: 26px 26px;
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    #000 28%,
+    #000 72%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    #000 28%,
+    #000 72%,
+    transparent
+  );
+  opacity: 0.7;
+}
+.flagship .wrap {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---- measure line drawn on scroll (lane pages) ---- */
+@supports (animation-timeline: view()) {
+  .dim-scroll {
+    animation: dim-draw 0.7s cubic-bezier(0.2, 0, 0, 1) both;
+    animation-timeline: view();
+    animation-range: entry 5% cover 22%;
+  }
+  .dim-scroll .dim-label {
+    animation: label-in 0.5s ease both;
+    animation-timeline: view();
+    animation-range: entry 14% cover 30%;
+  }
+}
+
+/* ---- section measurement rule that draws as it scrolls in ---- */
+.specrule.rdraw {
+  transform-origin: left center;
+}
+@supports (animation-timeline: view()) {
+  .specrule.rdraw {
+    transform: scaleX(0);
+    animation: draw-x 0.7s cubic-bezier(0.2, 0, 0, 1) both;
+    animation-timeline: view();
+    animation-range: entry 6% cover 26%;
+  }
+}
+@keyframes draw-x {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* ---- grid overlay easter egg (press G) ---- */
+.gridoverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  pointer-events: none;
+}
+.gridoverlay-cols {
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: clamp(0.6rem, 1.4vw, 1.5rem);
+}
+.gridoverlay-cols > span {
+  background: rgba(47, 106, 81, 0.07);
+  border-left: 1px solid rgba(47, 106, 81, 0.22);
+  border-right: 1px solid rgba(47, 106, 81, 0.22);
+}
+
+/* ---- grid hint in footer ---- */
+.foot-hint {
+  color: #6f6a5f;
+}
+.foot-hint kbd {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  border: 1px solid #4a4840;
+  border-radius: 3px;
+  padding: 0.05rem 0.35rem;
+  margin: 0 0.1rem;
+  color: var(--paper);
+  background: #23211b;
+}
+@media (max-width: 620px) {
+  .foot-hint {
+    display: none;
+  }
+}
+
 /* ---- reveal ----
    Progressive enhancement, three tiers:
    1. JS + scroll-timeline (Chromium): a native scroll-driven animation
@@ -950,6 +1060,7 @@ footer {
   .dim,
   .dim-label,
   .enter,
+  .specrule.rdraw,
   .hero-frame::before,
   .hero-frame::after {
     opacity: 1 !important;

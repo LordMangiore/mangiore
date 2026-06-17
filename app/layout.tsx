@@ -3,6 +3,7 @@ import { Space_Grotesk, Space_Mono, Newsreader } from 'next/font/google';
 import { SITE } from '@/lib/site';
 import TopBar from '@/components/TopBar';
 import Footer from '@/components/Footer';
+import GridOverlay from '@/components/GridOverlay';
 import './globals.css';
 
 // Display in a technical grotesque, body in a serif (the inverse of the
@@ -78,6 +79,7 @@ export default function RootLayout({
         <TopBar />
         <main id="main">{children}</main>
         <Footer />
+        <GridOverlay />
       </body>
     </html>
   );
