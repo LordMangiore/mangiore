@@ -9,8 +9,8 @@ export const SITE = {
   baseUrl: 'https://mangiore.com',
   email: 'hello@mangiore.com',
   location: 'Greater St. Louis, Missouri',
-  // The principal is named and present. Confirm/complete this string.
-  principal: 'Nicho',
+  // The principal is named and present.
+  principal: 'Nicho Mangiore',
   tagline: 'Digital Product & Systems Studio',
   description:
     'Mangiore is a digital product and systems studio. We design, build, and run software to a product standard, and bring that same rigor to making established businesses modern. BetterCram is our flagship.',

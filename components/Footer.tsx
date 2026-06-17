@@ -28,11 +28,41 @@ export default function Footer() {
             <a href={`mailto:${SITE.email}`}>Contact</a>
           </nav>
         </div>
+        {/* Title block, like the corner of a technical drawing. Every field
+            is true; "drawn by" is where the principal is named. */}
+        <dl className="titleblock" aria-label="Colophon">
+          <div className="tb-cell">
+            <dt className="tb-k">Project</dt>
+            <dd className="tb-v">{SITE.domain}</dd>
+          </div>
+          <div className="tb-cell">
+            <dt className="tb-k">Entity</dt>
+            <dd className="tb-v">{SITE.legalName}</dd>
+          </div>
+          <div className="tb-cell">
+            <dt className="tb-k">Scale</dt>
+            <dd className="tb-v">1:1</dd>
+          </div>
+          <div className="tb-cell">
+            <dt className="tb-k">Location</dt>
+            <dd className="tb-v">{SITE.location}</dd>
+          </div>
+          <div className="tb-cell">
+            <dt className="tb-k">Drawn by</dt>
+            <dd className="tb-v">{SITE.principal}</dd>
+          </div>
+          <div className="tb-cell">
+            <dt className="tb-k">Contact</dt>
+            <dd className="tb-v">
+              <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
+            </dd>
+          </div>
+        </dl>
         <div className="foot-meta">
           <span>
             © {year} {SITE.legalName}
           </span>
-          <span>{SITE.email}</span>
+          <span>All rights reserved</span>
         </div>
       </div>
     </footer>
