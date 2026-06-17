@@ -22,7 +22,7 @@ export default function TopBar() {
           >
             {SITE.flagship.name}
           </a>
-          <a className="cta-mini" href={`mailto:${SITE.email}`}>
+          <a className="cta-mini" href="/contact/">
             Contact
           </a>
         </nav>

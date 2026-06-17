@@ -25,7 +25,7 @@ export default function Footer() {
             <a href={SITE.flagship.url} target="_blank" rel="noopener">
               {SITE.flagship.name}
             </a>
-            <a href={`mailto:${SITE.email}`}>Contact</a>
+            <a href="/contact/">Contact</a>
           </nav>
         </div>
         {/* Title block, like the corner of a technical drawing. Every field

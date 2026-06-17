@@ -54,7 +54,7 @@ export default function Home() {
               business genuinely modern.
             </p>
             <div className="actions enter d4">
-              <a className="btn btn-solid" href={`mailto:${SITE.email}`}>
+              <a className="btn btn-solid" href="/contact/">
                 Start a project
               </a>
               <a

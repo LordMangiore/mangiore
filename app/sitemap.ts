@@ -15,10 +15,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: 'monthly' as const,
     priority: 0.9,
   };
+  const contact = {
+    url: `${SITE.baseUrl}/contact/`,
+    changeFrequency: 'yearly' as const,
+    priority: 0.7,
+  };
   const lanes = LANES.map((l) => ({
     url: `${SITE.baseUrl}/${l.slug}/`,
     changeFrequency: 'monthly' as const,
     priority: 0.8,
   }));
-  return [home, work, ...lanes];
+  return [home, work, contact, ...lanes];
 }
