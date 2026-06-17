@@ -12,7 +12,7 @@ export default function TopBar() {
           <span className="dot">.</span>
         </a>
         <nav className="nav" aria-label="Primary">
-          <a href="/#work">Work</a>
+          <a href="/work/">Work</a>
           <a href="/#approach">Approach</a>
           <a
             className="ext"

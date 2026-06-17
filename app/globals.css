@@ -562,6 +562,103 @@ section {
   border-color: var(--paper);
 }
 
+/* ---- work / reveal page ---- */
+.kbd-inline {
+  font-family: var(--mono);
+  font-size: 0.78em;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  padding: 0.02em 0.32em;
+  background: var(--paper-2);
+}
+.inline-link {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--pine-bright);
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.15rem;
+  transition: border-color 0.18s ease;
+}
+.inline-link:hover {
+  border-color: var(--pine-bright);
+}
+
+.mirror-head {
+  display: grid;
+  grid-template-columns: 3rem 1.2fr 1fr;
+  gap: clamp(1rem, 3vw, 2.6rem);
+  font-family: var(--mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--steel);
+  margin-bottom: 0.2rem;
+}
+.mirror {
+  border-top: 1px solid var(--ink);
+}
+.mirror-row {
+  display: grid;
+  grid-template-columns: 3rem 1.2fr 1fr;
+  gap: clamp(1rem, 3vw, 2.6rem);
+  align-items: start;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+.mirror-code {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  color: var(--pine-bright);
+  padding-top: 0.25rem;
+}
+.mirror-you {
+  font-family: var(--body);
+  color: var(--ink);
+  font-size: 1.08rem;
+  line-height: 1.45;
+  max-width: 36ch;
+}
+.mirror-go {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 1.12rem;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  text-decoration: none;
+  display: inline-flex;
+  gap: 0.5rem;
+  align-items: baseline;
+  transition: color 0.18s ease;
+}
+.mirror-go span {
+  color: var(--pine-bright);
+  display: inline-block;
+  transition: transform 0.2s cubic-bezier(0.2, 0, 0, 1);
+}
+.mirror-go:hover {
+  color: var(--pine-bright);
+}
+.mirror-go:hover span {
+  transform: translateX(4px);
+}
+@media (max-width: 720px) {
+  .mirror-head {
+    display: none;
+  }
+  .mirror-row {
+    grid-template-columns: 2.2rem 1fr;
+  }
+  .mirror-go {
+    grid-column: 2;
+    margin-top: 0.6rem;
+  }
+}
+
 /* ---- footer ---- */
 footer {
   background: var(--ink);

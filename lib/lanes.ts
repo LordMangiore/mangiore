@@ -9,6 +9,7 @@ export type Lane = {
   metaTitle: string; // <title>
   metaDescription: string;
   summary: string; // one line, used on the homepage lane grid
+  situation: string; // "where you are" mirror line on the /work page
   lead: string; // opening statement on the lane page
   body: string[]; // body paragraphs
   included: { label: string; detail: string }[]; // what's included spec list
@@ -24,6 +25,8 @@ export const LANES: Lane[] = [
       'Web, apps, and platforms taken from idea to shipped. Designed, engineered, and operated to a product standard by the studio that builds and runs its own software.',
     summary:
       'Web, apps, and platforms taken from idea to shipped. Designed, engineered, and run, not mocked up and handed off.',
+    situation:
+      'A product worth building, and a quiet worry that the finished thing will not match the picture in your head.',
     lead: 'We take products from idea to shipped, then keep them running. The same people design the interface, write the code, and own what happens after launch.',
     body: [
       'Most shops draw the picture and leave before the hard part. We build for the version of you that has to live with the result, because that is exactly the position we are in with our own product. Decisions get made by people who will be on the hook for them.',
@@ -45,6 +48,8 @@ export const LANES: Lane[] = [
       'CMS, CRM, ERP, and payments wired together so they actually behave. The integration work everything else quietly depends on, built and monitored to a product standard.',
     summary:
       'CMS, CRM, ERP, and payments wired together so they actually behave. The unglamorous work everything else depends on.',
+    situation:
+      'Tools that almost talk to each other, and people patching the gap between them by hand.',
     lead: 'We connect the systems a business already runs on so they behave as one. This is the plumbing nobody photographs and everything depends on.',
     body: [
       'A business accumulates tools. A CMS, a CRM, an ERP, a payment processor, a dozen point solutions, each correct on its own and none of them speaking the same language. The cost shows up as duplicate data, manual re-entry, and numbers that do not reconcile. We make them behave.',
@@ -66,6 +71,8 @@ export const LANES: Lane[] = [
       'For established businesses: found on search, fast on a phone, and built to convert. Modern without the agency theater, by a studio held to a product standard.',
     summary:
       'For established businesses: found on search, fast on a phone, built to convert. Modern, without the agency theater.',
+    situation:
+      'Real customers and a real reputation, sitting behind a website that makes you look a decade behind both.',
     lead: 'We make established businesses genuinely modern. Found on search, fast on a phone, and built so the visit turns into a customer.',
     body: [
       'An established business usually has the hardest part already solved. It has customers, a reputation, and a thing people actually want. What it often has is a digital presence that undersells all of it: slow, hard to find, awkward on the device most people are holding when they look.',
@@ -87,6 +94,8 @@ export const LANES: Lane[] = [
       'Senior product direction for teams that need the judgment, not another full-time hire. Strategy, prioritization, and standards held by an operator who ships.',
     summary:
       'Senior product direction for teams that need the judgment, not another full-time hire to carry it.',
+    situation:
+      'A team and a roadmap, and no one person whose actual job is deciding what right is.',
     lead: 'We provide senior product direction for teams that need the judgment, not another full-time hire to carry it.',
     body: [
       'Plenty of teams have engineers, a roadmap, and a backlog, and still ship the wrong thing. What is missing is the person who decides what right is, says no to the easy version, and holds the standard when a date is pushing the other way. That role does not always need to be full time. It always needs to be senior.',

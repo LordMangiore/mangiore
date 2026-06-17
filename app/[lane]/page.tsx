@@ -70,7 +70,7 @@ export default async function LanePage({
           <nav className="crumbs" aria-label="Breadcrumb">
             <a href="/">{SITE.name}</a>
             <span className="sep">/</span>
-            <a href="/#work">Work</a>
+            <a href="/work/">Work</a>
             <span className="sep">/</span>
             <span>{lane.code}</span>
           </nav>
