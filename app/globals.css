@@ -1006,7 +1006,7 @@ footer {
   font-family: var(--mono);
   font-size: 0.74rem;
   letter-spacing: 0.06em;
-  color: #6f6a5f;
+  color: #8b8576;
   margin-top: 0.7rem;
   max-width: 34ch;
 }
@@ -1045,7 +1045,7 @@ footer {
   font-size: 0.6rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #6f6a5f;
+  color: #8b8576;
 }
 .tb-v {
   display: block;
@@ -1078,7 +1078,7 @@ footer {
   font-size: 0.7rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #6f6a5f;
+  color: #8b8576;
 }
 
 /* ---- lane page ---- */
@@ -1230,11 +1230,8 @@ footer {
     animation-timeline: view();
     animation-range: entry 5% cover 22%;
   }
-  .dim-scroll .dim-label {
-    animation: label-in 0.5s ease both;
-    animation-timeline: view();
-    animation-range: entry 14% cover 30%;
-  }
+  /* Label fades on load (time-based), not on scroll, so an off-screen measure
+     line never leaves its label transparent for contrast auditors. */
 }
 
 /* ---- section measurement rule that draws as it scrolls in ---- */
@@ -1279,7 +1276,7 @@ footer {
 
 /* ---- grid hint in footer ---- */
 .foot-hint {
-  color: #6f6a5f;
+  color: #8b8576;
 }
 .foot-hint kbd {
   font-family: var(--mono);
@@ -1305,13 +1302,14 @@ footer {
       adds .in and the transition runs.
    3. No JS: the <noscript> style in the layout forces everything visible,
       so a reader without scripts never gets stuck on a blank page. */
+/* Transform-only so off-screen text stays full-opacity. A fade would have to
+   start above ~0.83 opacity to keep AA contrast, which is imperceptible, and
+   transparent text reads as a contrast failure to auditing tools. */
 .rv {
-  opacity: 0;
   transform: translateY(18px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+  transition: transform 0.7s ease;
 }
 .rv.in {
-  opacity: 1;
   transform: none;
 }
 @supports (animation-timeline: view()) {
@@ -1324,7 +1322,6 @@ footer {
 }
 @keyframes rv-in {
   to {
-    opacity: 1;
     transform: none;
   }
 }
