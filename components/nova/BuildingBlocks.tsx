@@ -12,16 +12,12 @@ export default function BuildingBlocks() {
   return (
     <>
       <header style={{ marginBottom: '1rem' }}>
-        <p style={{ fontFamily: 'var(--mono)', fontSize: '0.8rem', letterSpacing: '0.06em', textTransform: 'uppercase', color: 'var(--steel)', marginBottom: '0.75rem' }}>
-          N.O.V.A. / the building blocks
-        </p>
         <h1 style={{ fontFamily: 'var(--display)', fontSize: 'clamp(2rem, 5vw, 3rem)', lineHeight: 1.08 }}>
           A system you can feel work
         </h1>
-        <p style={{ color: 'var(--ink-soft)', marginTop: '1rem', maxWidth: '60ch' }}>
-          N.O.V.A. reads behavior, not sentiment. It earns the right to be direct, one area of life at a
-          time, and it would rather say nothing than say the wrong thing. Every part of it is a small,
-          deterministic machine. Here are a few of them, running live. Move things. Break them.
+        <p style={{ color: 'var(--ink-soft)', marginTop: '0.75rem', maxWidth: '60ch' }}>
+          Each block is a small, deterministic machine, running live. Move things. Break them. The same
+          loss, the same goal, lands differently for different people, and you can watch why.
         </p>
       </header>
 
@@ -58,10 +54,13 @@ export default function BuildingBlocks() {
       </Section>
 
       <div style={{ borderTop: '1px solid var(--rule)', marginTop: '3.5rem', paddingTop: '1.5rem' }}>
-        <p style={{ color: 'var(--ink-soft)', maxWidth: '60ch' }}>
-          Behavior over sentiment. Presence over performance. Privacy by abstraction. Every block here
-          computes from the same deterministic engine the real system runs on. The Experience Weight
-          parameters are an illustrative draft.
+        <p style={{ fontFamily: 'var(--display)', fontSize: '1.2rem', color: 'var(--ink)', maxWidth: '60ch' }}>
+          Behavior over sentiment. Presence over performance. Privacy by abstraction.
+        </p>
+        <p style={{ color: 'var(--ink-soft)', maxWidth: '60ch', marginTop: '0.6rem' }}>
+          Every block here computes from the same deterministic engine the real system runs on, so this
+          is not a mock, it is the thing itself, scaled down. The Experience Weight is an illustrative
+          draft.
         </p>
         <p style={{ color: 'var(--steel)', fontSize: '0.85rem', marginTop: '1rem' }}>
           Patent pending. Proprietary. All rights reserved.
