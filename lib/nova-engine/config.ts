@@ -79,9 +79,15 @@ export const EXPERIENCE_WEIGHT = {
   ageDaysMin: 7, // a one-week-old
   ageDaysMax: 36500, // ~100 years
   daysPerYear: 365,
-  // Age enters as log10(days): "expanding time", the same event is a bigger
-  // share of fewer days. This keeps the magnitude sane and separates the
-  // accumulated reference frame (days, monotonic) from resilience (R, the
-  // non-monotonic adversity term).
+  // Experience is a hump over age, not an ever-rising log. Applicable
+  // experience rises fast in youth, peaks in midlife, then declines gently in
+  // old age as it dates (still wonderful and useful, just off-peak). A
+  // log-normal curve over age in days: symmetric in perceived ("expanding")
+  // time. This hump in the denominator is what makes empathy a U over age,
+  // protected at both ends. Resilience R stays as individual variation.
+  humpPeakAgeYears: 50, // where applicable experience peaks
+  humpSigma: 1.4, // width in log-age; larger = gentler decline
+  humpPeak: 4.4, // peak experience value (matches the old midlife magnitude)
+  humpFloor: 0.3, // a newborn still has a sliver of capacity
   thresholds: { protect: 1.0, steady: 0.2 }, // ew >= protect, >= steady, else push
 } as const;

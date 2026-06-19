@@ -8,6 +8,7 @@
 import { useMemo, useState } from 'react';
 import {
   computeExperienceWeight,
+  experienceFactor,
   formatAge,
   formatEw,
   EXPERIENCE_WEIGHT,
@@ -37,6 +38,20 @@ export default function ExperienceWeight() {
   const r = useMemo(() => computeExperienceWeight(v), [v]);
   const set = (key: Field, value: number) => setV((p) => ({ ...p, [key]: value }));
 
+  const curve = useMemo(() => {
+    const minL = Math.log10(EXPERIENCE_WEIGHT.ageDaysMin);
+    const maxL = Math.log10(EXPERIENCE_WEIGHT.ageDaysMax);
+    const W = 300, H = 50, peak = EXPERIENCE_WEIGHT.humpPeak;
+    const xp = (d: number) => ((Math.log10(d) - minL) / (maxL - minL)) * W;
+    const yp = (val: number) => 6 + (1 - val / peak) * (H - 12);
+    const pts: string[] = [];
+    for (let i = 0; i <= 60; i++) {
+      const d = 10 ** (minL + (i / 60) * (maxL - minL));
+      pts.push(`${xp(d).toFixed(1)},${yp(experienceFactor(d)).toFixed(1)}`);
+    }
+    return { W, H, line: pts.join(' '), mx: xp(r.days), my: yp(r.experienceFactor) };
+  }, [r.days, r.experienceFactor]);
+
   const slider = (key: Field, label: string) => (
     <div className={styles.row} key={key}>
       <span className={styles.label}>{label}</span>
@@ -58,9 +73,9 @@ export default function ExperienceWeight() {
     <div className={styles.wrap}>
       <p className={styles.formula}>
         EW = <strong>(Problem &times; Acuteness)</strong> &divide;{' '}
-        <strong>(log&#8321;&#8320;(days) &times; Competence &times; Resilience)</strong>
+        <strong>(Experience(age) &times; Competence &times; Resilience)</strong>
       </p>
-      <p className={styles.sub}>age in days, log-scaled: the same event is a bigger share of fewer days</p>
+      <p className={styles.sub}>experience is a hump in days: it rises in youth, peaks in midlife, then dates</p>
 
       <div className={styles.groups}>
         <div className={styles.group}>
@@ -85,8 +100,12 @@ export default function ExperienceWeight() {
             <span className={styles.val} style={{ width: 'auto', fontSize: '0.78rem' }}>{formatAge(r.days)}</span>
           </div>
           <div className={styles.ageNote}>
-            = {r.days.toLocaleString()} days &rarr; log&#8321;&#8320; {r.experienceFactor.toFixed(2)}
+            = {r.days.toLocaleString()} days &rarr; experience {r.experienceFactor.toFixed(2)}
           </div>
+          <svg viewBox={`0 0 ${curve.W} ${curve.H}`} width="100%" style={{ display: 'block', marginBottom: '0.7rem' }} aria-hidden="true">
+            <polyline points={curve.line} fill="none" stroke="var(--pine-bright)" strokeWidth={1.5} />
+            <circle cx={curve.mx} cy={curve.my} r={3} fill="var(--pine)" />
+          </svg>
           {slider('competence', 'Competence')}
           {slider('resilience', 'Resilience')}
         </div>

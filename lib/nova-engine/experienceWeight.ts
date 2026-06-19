@@ -37,8 +37,13 @@ export function formatAge(days: number): string {
   return `${Math.round(days / C.daysPerYear)} yr`;
 }
 
+// Applicable experience over age: a log-normal hump. Rises in youth, peaks in
+// midlife, declines gently into old age as accumulated experience dates.
 export function experienceFactor(days: number): number {
-  return Math.log10(Math.max(1, days));
+  const x = Math.log(Math.max(1, days));
+  const center = Math.log(C.humpPeakAgeYears * C.daysPerYear);
+  const raw = C.humpPeak * Math.exp(-((x - center) ** 2) / (2 * C.humpSigma ** 2));
+  return Math.max(C.humpFloor, raw);
 }
 
 // Position on a log spectrum: ew 0.001 -> 0%, ew 100 -> 100%, ew 1 -> 60%.
@@ -49,7 +54,7 @@ export function spectrumPosition(ew: number): number {
 
 export function computeExperienceWeight(input: ExperienceWeightInput): ExperienceWeightResult {
   const days = Math.max(1, Math.round(input.ageDays));
-  const ef = Math.log10(days);
+  const ef = experienceFactor(days);
   const burden = input.problem * input.acuteness;
   const capacity = ef * input.competence * input.resilience;
   const ew = burden / capacity;
