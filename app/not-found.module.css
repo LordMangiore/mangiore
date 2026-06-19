@@ -1,0 +1,57 @@
+.bignum {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(5rem, 20vw, 13rem);
+  line-height: 0.82;
+  letter-spacing: -0.05em;
+  color: var(--ink);
+  margin: 0.75rem 0 0;
+}
+.accent { color: var(--pine-bright); }
+
+.viz {
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  display: block;
+  margin: 1.25rem 0 1.75rem;
+  overflow: visible;
+}
+.label {
+  font-family: var(--mono);
+  font-size: 11px;
+  fill: var(--steel);
+}
+
+.line {
+  stroke-dasharray: 580;
+  stroke-dashoffset: 580;
+  animation: draw 1.2s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+}
+.drift {
+  animation: float 4.5s ease-in-out infinite;
+}
+.parallax {
+  transition: transform 0.18s ease-out;
+}
+
+@keyframes draw { to { stroke-dashoffset: 0; } }
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .line { animation: none; stroke-dashoffset: 0; }
+  .drift { animation: none; }
+}
+
+.labLink {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--steel);
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 1px;
+}
+.labLink:hover { color: var(--pine); border-color: var(--pine-bright); }
