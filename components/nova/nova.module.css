@@ -197,7 +197,7 @@
 .discard { font-size: 0.72rem; color: var(--steel); margin-top: 0.5rem; }
 
 /* Section scaffolding */
-.section { margin: 3.5rem 0; }
+.section { margin: 2.75rem 0; }
 .sectionKicker { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--steel); margin-bottom: 0.4rem; }
 .sectionTitle { font-family: var(--display); font-size: clamp(1.4rem, 3vw, 1.9rem); line-height: 1.15; margin-bottom: 0.6rem; }
 .sectionLede { color: var(--ink-soft); max-width: 60ch; margin-bottom: 1.5rem; }
@@ -240,3 +240,9 @@
 .prose p { color: var(--ink-soft); max-width: 64ch; margin-bottom: 1.1rem; }
 .prose h3 { font-family: var(--display); font-size: 1.15rem; margin: 2rem 0 0.5rem; color: var(--ink); }
 .lead { font-size: 1.15rem; color: var(--ink); max-width: 60ch; margin-bottom: 1.5rem; }
+
+/* Toggle chips (proactive block) */
+.toggle { font-family: var(--body); font-size: 0.85rem; color: var(--ink-soft); background: var(--paper); border: 1px solid var(--rule); border-radius: 8px; padding: 0.4rem 0.7rem; cursor: pointer; }
+.toggle:hover { border-color: var(--pine-bright); }
+.toggleOn { color: var(--paper); background: var(--pine); border-color: var(--pine); }
+.toggleSuppress.toggleOn { background: #a4502f; border-color: #a4502f; }

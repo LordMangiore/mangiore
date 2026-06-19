@@ -12,11 +12,11 @@ export default function Section({
   children: React.ReactNode;
 }) {
   return (
-    <section className={styles.section}>
+    <div className={styles.section}>
       <div className={styles.sectionKicker}>{kicker}</div>
       <h2 className={styles.sectionTitle}>{title}</h2>
       <p className={styles.sectionLede}>{lede}</p>
       {children}
-    </section>
+    </div>
   );
 }

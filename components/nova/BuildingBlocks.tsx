@@ -5,6 +5,7 @@ import Governors from './Governors';
 import PrivacyBoundary from './PrivacyBoundary';
 import ToneCascade from './ToneCascade';
 import Anchors from './Anchors';
+import ProactivePresence from './ProactivePresence';
 import SleepLifecycle from './SleepLifecycle';
 
 export default function BuildingBlocks() {
@@ -46,6 +47,10 @@ export default function BuildingBlocks() {
 
       <Section kicker="Block 6 / integrity" title="Honesty is cheaper than excuse" lede="A commitment carries an integrity score. Keep it and it climbs; miss it and it dips, but how you miss matters. Owning a miss barely costs anything; dressing it up in an excuse costs four times as much.">
         <Anchors />
+      </Section>
+
+      <Section kicker="Block 7 / proactive presence" title="It speaks first, but only when it has earned it" lede="This is the thing that makes N.O.V.A. different: a few times, it says the right thing before you ask, because it noticed the moment. Flip the ambient signals and watch the gate decide to speak or stay quiet. It needs a real commitment behind it, a convergence of signals, earned trust, and a clear head. Take any one away and it holds its tongue.">
+        <ProactivePresence />
       </Section>
 
       <Section kicker="The showpiece / it all runs together" title="One goal, end to end" lede="Set a sleep goal and walk it through the whole system, night by night: Atlas tagging, the scores moving, the tone responding, and the moment it earns N.O.V.A. the right to speak first on your morning drive.">
