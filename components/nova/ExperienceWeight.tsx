@@ -9,6 +9,7 @@ import { useMemo, useState } from 'react';
 import {
   computeExperienceWeight,
   experienceFactor,
+  spectrumPosition,
   formatAge,
   formatEw,
   EXPERIENCE_WEIGHT,
@@ -37,6 +38,11 @@ export default function ExperienceWeight() {
   const [v, setV] = useState<ExperienceWeightInput>(PRESETS[2].v);
   const r = useMemo(() => computeExperienceWeight(v), [v]);
   const set = (key: Field, value: number) => setV((p) => ({ ...p, [key]: value }));
+
+  // Colored-bar boundaries derived from the verdict thresholds, so the bar and
+  // the verdict always agree.
+  const steadyPos = spectrumPosition(EXPERIENCE_WEIGHT.thresholds.steady);
+  const protectPos = spectrumPosition(EXPERIENCE_WEIGHT.thresholds.protect);
 
   const curve = useMemo(() => {
     const minL = Math.log10(EXPERIENCE_WEIGHT.ageDaysMin);
@@ -127,9 +133,9 @@ export default function ExperienceWeight() {
       </div>
 
       <div className={styles.bar} aria-hidden="true">
-        <div className={styles.segPush} style={{ width: '46%' }} />
-        <div className={styles.segSteady} style={{ width: '14%' }} />
-        <div className={styles.segProtect} style={{ width: '40%' }} />
+        <div className={styles.segPush} style={{ width: `${steadyPos}%` }} />
+        <div className={styles.segSteady} style={{ width: `${protectPos - steadyPos}%` }} />
+        <div className={styles.segProtect} style={{ width: `${100 - protectPos}%` }} />
         <div className={styles.needle} style={{ left: `${r.position}%` }} />
       </div>
       <div className={styles.scale}>

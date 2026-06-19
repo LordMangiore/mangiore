@@ -93,5 +93,7 @@ export const EXPERIENCE_WEIGHT = {
   humpSigmaRight: 0.38, // the decline, peak to 100
   humpPeak: 4.4, // peak experience value
   humpFloor: 0.3, // a newborn still has a sliver of capacity
-  thresholds: { protect: 1.0, steady: 0.2 }, // ew >= protect, >= steady, else push
+  // ew >= protect -> protect; >= steady -> steady; else push. Tuned to lean
+  // toward push: protect is reserved for genuinely overwhelming load.
+  thresholds: { protect: 2.0, steady: 0.6 },
 } as const;
