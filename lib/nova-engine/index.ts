@@ -16,3 +16,4 @@ export * from './trust';
 export * from './governors';
 export * from './tone';
 export * from './anchor';
+export * from './arbitration';

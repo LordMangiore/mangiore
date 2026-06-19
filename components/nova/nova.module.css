@@ -223,3 +223,20 @@
 .lifeTag { font-family: var(--mono); font-size: 0.78rem; color: var(--pine); background: rgba(47,106,81,0.07); border: 1px solid var(--pine-bright); border-radius: 8px; padding: 0.5rem 0.7rem; margin: 0.6rem 0; word-break: break-word; }
 .msg { border-left: 3px solid var(--pine); padding: 0.5rem 0 0.5rem 0.9rem; margin: 0.8rem 0; font-family: var(--body); font-style: italic; color: var(--ink); }
 .stepBtns { display: flex; gap: 0.5rem; margin-top: 1rem; }
+
+/* Parliament (arbitration) */
+.winBadge { margin-left: 0.5rem; font-size: 0.68rem; color: var(--pine); border: 1px solid var(--pine-bright); border-radius: 999px; padding: 0.05rem 0.45rem; vertical-align: middle; }
+.regionTrack { position: relative; height: 14px; background: var(--rule); border-radius: 999px; overflow: hidden; margin-top: 0.5rem; }
+.loud { position: absolute; left: 0; top: 0; height: 100%; background: rgba(47,106,81,0.22); }
+.act { position: absolute; left: 0; top: 0; height: 100%; background: var(--pine-bright); border-radius: 999px; transition: width 0.15s ease; }
+
+/* Tabs */
+.tabs { display: flex; gap: 1.25rem; border-bottom: 1px solid var(--rule); margin: 0 0 2.5rem; }
+.tab { font-family: var(--body); font-size: 1rem; background: none; border: none; border-bottom: 2px solid transparent; padding: 0.6rem 0.1rem; margin-bottom: -1px; color: var(--steel); cursor: pointer; }
+.tab:hover { color: var(--ink); }
+.tabOn { color: var(--ink); border-bottom-color: var(--pine); }
+
+/* Prose (theory tab) */
+.prose p { color: var(--ink-soft); max-width: 64ch; margin-bottom: 1.1rem; }
+.prose h3 { font-family: var(--display); font-size: 1.15rem; margin: 2rem 0 0.5rem; color: var(--ink); }
+.lead { font-size: 1.15rem; color: var(--ink); max-width: 60ch; margin-bottom: 1.5rem; }
