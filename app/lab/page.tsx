@@ -3,7 +3,7 @@ import Gate from '@/components/nova/Gate';
 import NovaDemo from '@/components/nova/NovaDemo';
 
 export const metadata: Metadata = {
-  title: 'N.O.V.A. — the building blocks',
+  title: 'The Lab — N.O.V.A.',
   robots: { index: false, follow: false },
 };
 

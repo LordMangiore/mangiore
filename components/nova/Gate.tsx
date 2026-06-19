@@ -34,7 +34,7 @@ export default function Gate({ children }: { children: React.ReactNode }) {
     const val = (new FormData(e.currentTarget).get('pw') as string)?.trim().toLowerCase();
     if (val === PASSWORD) {
       sessionStorage.setItem(KEY, '1');
-      setMsg('There it is. Come in.');
+      setMsg('There it is. Welcome to the lab.');
       setTimeout(() => setOpen(true), 500);
     } else {
       setMsg(NOPES[tries % NOPES.length]);
@@ -48,15 +48,14 @@ export default function Gate({ children }: { children: React.ReactNode }) {
   return (
     <div className={styles.gate}>
       <div className={styles.gateCard}>
-        <div className={styles.gateMark}>N.O.V.A.</div>
-        <h1 className={styles.gateTitle}>N.O.V.A. has trust issues.</h1>
+        <div className={styles.gateMark}>Mangiore // the lab</div>
+        <h1 className={styles.gateTitle}>The lab does not open for everyone.</h1>
         <p className={styles.gateSub}>
-          Fitting, really. It does not open up to just anyone, and it is not going to start now.
-          Say the word.
+          What is inside has trust issues, which is rather the point. Say the word and step in.
         </p>
         <form className={styles.gateForm} onSubmit={submit}>
           <input className={styles.gateInput} name="pw" type="password" placeholder="the word" autoFocus aria-label="Password" />
-          <button className={styles.gateBtn} type="submit">Earn it</button>
+          <button className={styles.gateBtn} type="submit">Enter the lab</button>
         </form>
         <div className={styles.gateMsg}>{msg}</div>
         <p className={styles.gateHint}>
