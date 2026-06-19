@@ -73,7 +73,7 @@ export default function NovaDemoPage() {
           <PrivacyBoundary />
         </Section>
 
-        <footer style={{ borderTop: '1px solid var(--rule)', marginTop: '3.5rem', paddingTop: '1.5rem' }}>
+        <div style={{ borderTop: '1px solid var(--rule)', marginTop: '3.5rem', paddingTop: '1.5rem' }}>
           <p style={{ color: 'var(--ink-soft)', maxWidth: '60ch' }}>
             Behavior over sentiment. Presence over performance. Privacy by abstraction. Every block
             here computes from the same deterministic engine the real system runs on. The Experience
@@ -82,7 +82,7 @@ export default function NovaDemoPage() {
           <p style={{ color: 'var(--steel)', fontSize: '0.85rem', marginTop: '1rem' }}>
             Patent pending. Proprietary. All rights reserved.
           </p>
-        </footer>
+        </div>
       </main>
     </Gate>
   );
