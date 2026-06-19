@@ -215,3 +215,11 @@
 .gateBtn:hover { background: var(--pine-bright); border-color: var(--pine-bright); }
 .gateMsg { min-height: 1.4rem; margin-top: 1rem; font-size: 0.9rem; color: #a4502f; }
 .gateHint { margin-top: 1.5rem; font-size: 0.78rem; color: var(--steel); }
+
+/* Sleep lifecycle showpiece */
+.stepDots { display: flex; gap: 6px; margin-bottom: 1rem; }
+.stepDot { height: 4px; flex: 1; background: var(--rule); border-radius: 999px; }
+.stepDotOn { background: var(--pine-bright); }
+.lifeTag { font-family: var(--mono); font-size: 0.78rem; color: var(--pine); background: rgba(47,106,81,0.07); border: 1px solid var(--pine-bright); border-radius: 8px; padding: 0.5rem 0.7rem; margin: 0.6rem 0; word-break: break-word; }
+.msg { border-left: 3px solid var(--pine); padding: 0.5rem 0 0.5rem 0.9rem; margin: 0.8rem 0; font-family: var(--body); font-style: italic; color: var(--ink); }
+.stepBtns { display: flex; gap: 0.5rem; margin-top: 1rem; }

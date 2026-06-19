@@ -14,3 +14,5 @@ export * from './config';
 export * from './experienceWeight';
 export * from './trust';
 export * from './governors';
+export * from './tone';
+export * from './anchor';

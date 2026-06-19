@@ -4,6 +4,9 @@ import ExperienceWeight from '@/components/nova/ExperienceWeight';
 import TrustDomains from '@/components/nova/TrustDomains';
 import Governors from '@/components/nova/Governors';
 import PrivacyBoundary from '@/components/nova/PrivacyBoundary';
+import ToneCascade from '@/components/nova/ToneCascade';
+import Anchors from '@/components/nova/Anchors';
+import SleepLifecycle from '@/components/nova/SleepLifecycle';
 import styles from '@/components/nova/nova.module.css';
 
 export const metadata: Metadata = {
@@ -71,6 +74,30 @@ export default function NovaDemoPage() {
           lede="Raw voice, text, and sensor data are abstracted into one small tag at the edge, and the raw is thrown away. The reasoning side only ever sees the tag. There is nothing stored to leak, sell, or rebuild you from."
         >
           <PrivacyBoundary />
+        </Section>
+
+        <Section
+          kicker="Block 5 / the integrator"
+          title="One tone, and the reason it fired"
+          lede="Everything converges here. Trust, conflict, and the protective governors resolve in a fixed order into exactly one tone. Move the inputs and watch which tone wins, and why. The same conflict yields a challenge at high trust, a held reflection under load, and a locked-out softness at low trust."
+        >
+          <ToneCascade />
+        </Section>
+
+        <Section
+          kicker="Block 6 / integrity"
+          title="Honesty is cheaper than excuse"
+          lede="A commitment carries an integrity score. Keep it and it climbs; miss it and it dips, but how you miss matters. Owning a miss barely costs anything; dressing it up in an excuse costs four times as much. Recovery is forgiven in the moment, never banked against you."
+        >
+          <Anchors />
+        </Section>
+
+        <Section
+          kicker="The showpiece / it all runs together"
+          title="One goal, end to end"
+          lede="Set a sleep goal and walk it through the whole system, night by night: Atlas tagging, the scores moving, the tone responding, and the moment it all earns N.O.V.A. the right to speak first on your morning drive."
+        >
+          <SleepLifecycle />
         </Section>
 
         <div style={{ borderTop: '1px solid var(--rule)', marginTop: '3.5rem', paddingTop: '1.5rem' }}>
