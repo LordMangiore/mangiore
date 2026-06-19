@@ -85,9 +85,13 @@ export const EXPERIENCE_WEIGHT = {
   // log-normal curve over age in days: symmetric in perceived ("expanding")
   // time. This hump in the denominator is what makes empathy a U over age,
   // protected at both ends. Resilience R stays as individual variation.
-  humpPeakAgeYears: 50, // where applicable experience peaks
-  humpSigma: 1.4, // width in log-age; larger = gentler decline
-  humpPeak: 4.4, // peak experience value (matches the old midlife magnitude)
+  humpPeakAgeYears: 65, // where applicable experience peaks
+  // Asymmetric (split-normal) in log-age: a gradual rise through youth, then a
+  // steeper decline so that by ~100 experience has regressed a lot (back near a
+  // mid-teen's level). Larger sigma = gentler.
+  humpSigmaLeft: 1.4, // the rise, youth to peak
+  humpSigmaRight: 0.38, // the decline, peak to 100
+  humpPeak: 4.4, // peak experience value
   humpFloor: 0.3, // a newborn still has a sliver of capacity
   thresholds: { protect: 1.0, steady: 0.2 }, // ew >= protect, >= steady, else push
 } as const;

@@ -42,7 +42,8 @@ export function formatAge(days: number): string {
 export function experienceFactor(days: number): number {
   const x = Math.log(Math.max(1, days));
   const center = Math.log(C.humpPeakAgeYears * C.daysPerYear);
-  const raw = C.humpPeak * Math.exp(-((x - center) ** 2) / (2 * C.humpSigma ** 2));
+  const sigma = x <= center ? C.humpSigmaLeft : C.humpSigmaRight;
+  const raw = C.humpPeak * Math.exp(-((x - center) ** 2) / (2 * sigma ** 2));
   return Math.max(C.humpFloor, raw);
 }
 
