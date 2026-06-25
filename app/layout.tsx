@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import { Space_Grotesk, Space_Mono, Newsreader } from 'next/font/google';
 import { SITE } from '@/lib/site';
 import TopBar from '@/components/TopBar';
@@ -69,6 +70,17 @@ export default function RootLayout({
       lang="en"
       className={`${display.variable} ${body.variable} ${mono.variable}`}
     >
+      <head>
+        {/* Privacy-friendly analytics by Plausible */}
+        <Script
+          defer
+          src="https://plausible.io/js/pa-lL_IjYDcR9Zmsz7g_Va5A.js"
+          strategy="afterInteractive"
+        />
+        <Script id="plausible-init" strategy="afterInteractive">
+          {`window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()`}
+        </Script>
+      </head>
       <body>
         {/* Without JS there is no mechanism to trigger scroll reveals, so make
             sure the content is simply visible. */}
